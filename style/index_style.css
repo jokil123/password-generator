@@ -1,0 +1,22 @@
+#passwordOutput {
+    font-size: 25px;
+    margin: 0px;
+    width: calc(100% - 30px);
+}
+
+#generateButton {
+    width: 95%;
+}
+
+#securityBar {
+    width: 50%;
+    transition: 0.5s;
+}
+
+.contentSeperator{
+    height: 15px;
+}
+
+.sliderContainer {
+    height: 39px;
+}

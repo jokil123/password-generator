@@ -1,0 +1,80 @@
+.monospace {
+    font-family: monospace;
+}
+
+.elipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hide {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.noMargin {
+    margin: 0px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.clickInvert:active {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+.transition-250 * {
+    transition: 0.25s;
+}
+
+
+
+
+
+/* Silders */
+
+.slider {
+    margin-top: 12px;
+    -webkit-appearance: none;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0075FF;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0075FF;
+  cursor: pointer;
+}
+
+/* Silders */

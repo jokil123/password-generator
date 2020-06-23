@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Passwort Generator</title>
+        <link rel="stylesheet" href="style/w3.css">
+        <!-- <link rel="stylesheet" type="text/css" href="style/index_style.css"> -->
+        <script src="script/passwort_generator.js"></script>
+        <script src="script/ui.js"></script>
+    </head>
+    <body onload="Load()">
+        <div Id="contianer">
+            <header class="w3-container w3-indigo">
+                <h1>Password Generator</h1>
+            </header>
+            <div class="w3-row w3-container w3-blue" id="content">
+                <p>Generates Passwords for every application</p>
+                <button id="generateButton" onclick="GeneratePassword();">Generate</button>
+                <input id="lengthInputSlider" type="range" value="8" min="1" max="100" oninput="UpdateLength(this.value);">
+                <input id="lengthInput" type="number" value="8" min="1" onchange="UpdateLength(this.value);">
+
+                <div id="checkboxes" class="w3-half w3-container">
+                    <div class="w3-panel w3-grey w3-padding-16">
+                        <input id="numbersCheck" type="checkbox" checked onchange="LetterSelect()">
+                        <span>Numbers</span>
+                    </div>
+                    
+                    <div class="w3-panel w3-grey w3-padding-16">
+                        <input id="lettersSCheck" type="checkbox" checked onchange="LetterSelect()">
+                        <span>Lowercase Letters</span>
+                    </div>
+
+                    <div class="w3-panel w3-grey w3-padding-16">
+                        <input id="lettersLCheck" type="checkbox" checked onchange="LetterSelect()">
+                        <span>Uppercase Letters</span>
+                    </div>
+
+                    <div class="w3-panel w3-grey w3-padding-16">
+                        <input id="specialCheck" type="checkbox" checked onchange="LetterSelect()">
+                        <span>Special Characters</span>
+                    </div>
+
+                    <div class="w3-panel w3-grey w3-padding-16">
+                        <input id="wordsCheck" type="checkbox" onchange="LetterSelect()">
+                        <span>Words</span>
+                    </div>   
+                </div>
+                
+                <div class="w3-container w3-half w3-light-gray w3-padding-24" id="output">
+                </div>
+
+                <div class="w3-container w3-blue-grey" id="securityBarBackground">
+                    <div id="securityBar">
+                    </div>
+                </div>
+
+
+            </div>
+            <footer class="w3-rest w3-display-bottommiddle w3-container w3-light-gray">
+                Copyright&copy; Joshua Lung
+            </footer>
+        </div>
+    </body>
+</html>

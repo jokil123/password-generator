@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Password Generator</title>
+        
+        <meta name="description" content="A password generator for generating many different passwords">
+        <meta name="keywords" content="Password Generator, Password, Generator, Customizable, Simple, Responsive, Mobile-supported">
+        <meta name="author" content="Joshua Lung">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset="UTF-8">
+
+        <link rel="shortcut icon" type="image/x-icon" href="img/logo_square_favicon.ico">
+
+        <link rel="stylesheet" href="style/w3.css">
+        <link rel="stylesheet" href="style/custom_framework.css">
+        <link rel="stylesheet" type="text/css" href="style/index_style.css">
+
+        <script src="script/passwort_generator.js"></script>
+        <script src="script/ui.js"></script>
+    </head>
+    <body onload=Init();>
+        <div id="pageContainer">
+            <header id="header" class="w3-bar w3-darker-gray w3-top w3-shrink-small transition-250">
+                <img class="w3-bar-item w3-mobile w3-hide-small" height="63px" id="headerLogo" src="img/logo_square.png" alt="Header Logo">
+                <a href="#" class="w3-bar-item w3-button w3-mobile"><h5>Home</h5></a>
+                <a href="index.html" class="w3-bar-item w3-button w3-mobile"><h5>Password Generator</h5></a>
+                <a href="w3-test.html" class="w3-bar-item w3-button w3-mobile"><h5>W3-css Test</h5></a>
+                <a href="#" class="w3-bar-item w3-button w3-mobile"><h5>Info Section</h5></a>
+            </header>
+
+            <header id="headerDistance" class="w3-bar w3-shrink-small transition-250">
+                <h5 class="w3-bar-item w3-button w3-mobile">Home</h5>
+                <h5 class="w3-bar-item w3-button w3-mobile">Password Generator</h5>
+                <h5 class="w3-bar-item w3-button w3-mobile">W3-css Test</h5>
+                <h5 class="w3-bar-item w3-button w3-mobile">Info Section</h5>
+            </header>
+
+
+
+            <div class="w3-row">
+                <div class="w3-eigth sidebar w3-shrink-horizontal transition-250">
+                    <p class="wtf why do I need a tag inside of this div"></p>
+                </div>
+
+                
+                <div class="w3-threequarter" id="pageContent">
+
+                    <div class="contentSeperator w3-container w3-hide-small"></div>
+
+
+                    <div class="contentItem w3-border w3-container w3-light-gray w3-round-large" id="contentItem1">
+                        <h2>Password Generator</h2>
+                        <p>Generates passwords for every situation.</p>
+
+                        <h4>Generation Settings</h4>
+                        <p>Password Length</p>
+
+                        <div class="w3-row">
+                            <div class="w3-half sliderContainer">
+                                <input class="slider" id="lengthInputSlider" type="range" value="8" min="1" max="32" oninput="UpdateLength(this.value);">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input" id="lengthInput" style="width: 95%; margin-left: 2.5%;" type="number" value="8" min="1" onchange="UpdateLength(this.value);">
+                            </div>
+                        </div>
+                        
+                        <div class="w3-container">
+                            <p onclick="CheckboxToggle(this.children[0])">
+                                <input class="w3-check" id="numbersCheck" type="checkbox" checked onchange="CheckboxToggle(this.parentElement.children[0])">
+                                <label>Numbers</label>
+                            </p>
+                            
+                            <p onclick="CheckboxToggle(this.children[0])">
+                                <input class="w3-check" id="lettersSCheck" type="checkbox" checked onchange="CheckboxToggle(this.parentElement.children[0])">
+                                <label>Lowercase Letters</label>
+                            </p>
+
+                            <p onclick="CheckboxToggle(this.children[0])">
+                                <input class="w3-check" id="lettersLCheck" type="checkbox" checked onchange="CheckboxToggle(this.parentElement.children[0])">
+                                <label>Uppercase Letters</label>
+                            </p>
+                            
+                            <p onclick="CheckboxToggle(this.children[0])">
+                                <input class="w3-check" id="specialCheck" type="checkbox" checked onchange="CheckboxToggle(this.parentElement.children[0])">
+                                <label>Special Characters</label>
+                            </p>
+                            
+                            <p onclick="CheckboxToggle(this.children[0])">
+                                <input class="w3-check" id="wordsCheck" type="checkbox" onchange="CheckboxToggle(this.parentElement.children[0])">
+                                <label>Words</label>
+                            </p>
+                        </div>
+
+                        <button id="generateButton" class="w3-button w3-dark-gray w3-round w3-margin" onclick="GeneratePassword();">
+                            <h4>Generate!</h4>
+                        </button>
+                    </div>
+
+                    <div class="contentSeperator w3-hide-small"></div>
+
+
+                    <div class="contentItem w3-border w3-container w3-light-gray w3-round-large" id="contentItem2">
+                        <h2>Generated Password:</h2>
+                        
+                        <div class="w3-container w3-display-container w3-border w3-round-small w3-white w3-section w3-padding-16">
+
+                            <p class="elipsis monospace" id="passwordOutput">}j'u%%3GTXJLvt]N#V'c_bu=URZ{Mz\3q>GZ6=9"fMUCm4</p>
+                            
+
+
+                            <div class="w3-container w3-display-right w3-padding-16 clickInvert pointer" onclick="CopyToClipboard();">
+                                <img height="25px" src="https://image.flaticon.com/icons/png/512/88/88026.png" alt="copy to clipboard">
+                            </div>  
+                        </div>
+                        
+                        <div class="w3-container w3-grey w3-section noPadding">
+                            <div class="w3-container" id="securityBar">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contentSeperator w3-hide-small"></div>
+
+
+                    <div class="contentItem w3-border w3-container w3-light-gray w3-round-large" id="contentItem1">
+                        <h3>Why do I need a secure password?</h3>
+                        <p>Secure passwords are very important, even when they seems unnecessary</p>
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <br>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+                        <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                        <ul>
+                            <li>
+                                <h4>Strong Password</h4>
+                                <div class="w3-margin-bottom">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div>
+                            </li>
+                            <li>
+                                <h4>Even Stronger Password</h4>
+                                <div class="w3-margin-bottom">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. </div>
+                            </li>
+                            <li>
+                                <h4>The Absolute Stongest Password</h4>
+                                <div class="w3-margin-bottom">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</div>
+                            </li>
+                            <li>
+                                <h4>Just kidding, there is more</h4>
+                                <div class="w3-margin-bottom">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
+                                <img width="90%" style="max-width: 725px;" src="img/password_example.PNG" alt="example of a password">
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+                </div>
+
+                <div class="w3-eigth sidebar w3-shrink-horizontal transition-250">
+                    <p></p>
+                </div>
+            </div>
+
+            
+            <footer class="w3-bottom w3-light-gray" id="footer">
+
+            </footer>
+        </div>
+
+        <input class="hide noMargin" id="hiddenInput" type="text" value="sadasdas"/>
+    </body>
+</html>
