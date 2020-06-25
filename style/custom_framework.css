@@ -32,7 +32,7 @@
 }
 
 .transition-250 * {
-    transition: 0.25s;
+    transition: margin 0.25s, padding 0.25s, font-size 0.25s, height 0.25s, width 0.25s;
 }
 
 
